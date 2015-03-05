@@ -9,7 +9,7 @@
                 height: 100%;
             }
             body {
-                font-family: 'Helvetica Neue', Arial, sans-serif;
+                font-family: sans-serif;
                 color: #fff;
             }
             h1 {
@@ -32,6 +32,7 @@
                 transform: translate3d(-50%, -50%, 0);
             }
         </style>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
         <script src="src/mx.js"></script>
         <script src="src/extensions/mx.scene.js"></script>
         <script src="src/extensions/mx.rotationControl.js"></script>
@@ -51,7 +52,7 @@
                 scene = new MX.Scene().addTo('body')
                 scene.width = window.innerWidth
                 scene.height = window.innerHeight
-                scene.perspective = 800
+                scene.perspective = 600
                 window.onresize = function () {
                     scene.width = window.innerWidth
                     scene.height = window.innerHeight
