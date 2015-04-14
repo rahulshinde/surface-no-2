@@ -11,20 +11,7 @@
                 margin: 0;
                 height: 100%;
             }
-            body {
-                font-family: sans-serif;
-                color: #fff;
-            }
-            h1 {
-                font-size: 22px;
-                margin: 0;
-            }
-            #info {
-                font-size: 13px;
-                margin: 14px;
-                position: absolute;
-                z-index: 2;
-            }
+
             .mx-scene {
                 z-index: 1;
                 position: absolute;
@@ -41,6 +28,53 @@
         <script src="src/extensions/mx.rotationControl.js"></script>
         <script src="src/primitives/mx.texturedBox.js"></script>
         <script src="libs/tween.min.js"></script>
+                <script type="text/javascript">
+            
+            /***********************************************
+            * Cross browser Marquee II- © Dynamic Drive (www.dynamicdrive.com)
+            * This notice MUST stay intact for legal use
+            * Visit http://www.dynamicdrive.com/ for this script and 100s more.
+            ***********************************************/
+            
+            var delayb4scroll=500 //Specify initial delay before marquee starts to scroll on page (2000=2 seconds)
+            var marqueespeed=1 //Specify marquee scroll speed (larger is faster 1-10)
+            var pauseit=1 //Pause marquee onMousever (0=no. 1=yes)?
+            
+            ////NO NEED TO EDIT BELOW THIS LINE////////////
+            
+            var copyspeed=marqueespeed
+            var pausespeed=(pauseit==0)? copyspeed: 0
+            var actualheight=''
+            
+            function scrollmarquee(){
+            if (parseInt(cross_marquee.style.top)>(actualheight*(-1)+8))
+            cross_marquee.style.top=parseInt(cross_marquee.style.top)-copyspeed+"px"
+            else
+            cross_marquee.style.top=parseInt(marqueeheight)+8+"px"
+            }
+            
+            function initializemarquee(){
+            cross_marquee=document.getElementById("vmarquee")
+            cross_marquee.style.top=0
+            marqueeheight=document.getElementById("marqueecontainer").offsetHeight
+            actualheight=cross_marquee.offsetHeight
+            if (window.opera || navigator.userAgent.indexOf("Netscape/7")!=-1){ //if Opera or Netscape 7x, add scrollbars to            scroll and exit
+            cross_marquee.style.height=marqueeheight+"px"
+            cross_marquee.style.overflow="scroll"
+            return
+            }
+            setTimeout('lefttime=setInterval("scrollmarquee()",30)', delayb4scroll)
+            }
+            
+            if (window.addEventListener)
+            window.addEventListener("load", initializemarquee, false)
+            else if (window.attachEvent)
+            window.attachEvent("onload", initializemarquee)
+            else if (document.getElementById)
+            window.onload=initializemarquee
+            
+            
+        </script>
         <script>
             function init () {
 
@@ -55,7 +89,7 @@
                 scene = new MX.Scene().addTo('body')
                 scene.width = window.innerWidth
                 scene.height = window.innerHeight
-                scene.perspective = 600
+                scene.perspective = 800
                 window.onresize = function () {
                     scene.width = window.innerWidth
                     scene.height = window.innerHeight
@@ -68,7 +102,7 @@
                     height: 804,
                     depth: 804,
                     texture: 'img/pano-test-for-web.jpg',
-                    overlap: 2 // overlap 1px to eliminate seams
+                    overlap: 4 // overlap 1px to eliminate seams
                 })
                 scene.add(skybox)
 
@@ -189,11 +223,39 @@
 
             }
         </script>
+
+        <style type="text/css">
+            
+            
+            
+        </style>
+            
     </head>
     <body onload="init()">
-        <div id="info">
-            <h1>Matrix.js test</h1>
-            <p id="log" style="font-size: 80px"></p>
-        </div>
+        <div id="marqueecontainer" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed">
+        <div id="vmarquee" style="position: absolute; width: 90%;">
+
+        <!--YOUR SCROLL CONTENT HERE-->
+
+        <h4 id="textcolor">approach, enter room on left hand side (although this directive may be redundant seeing as the doors on the right have been sealed off from the inside), man in fetal position. hanatarash 3 plays on a bluetooth speaker at maximum volume. moving deeper, a noise grows louder. a baby elephant sits in the corner of a small corridor that is extruded out from the main room. it is facing the wall wearing a birthday hat (privileged information, the room is too dark for you to actually see this).
+        <br>
+        <br>
+        in reverse (for you): at 730am a man arrives home, he had actually reached the apartment complex at 530, but the elephant he was with couldn’t make it up the stairs on it’s own. 30minutes per floor. entering the apartment he finds signs that his roommate is home but, upon looking through the space, the man finds that he’s nowhere to be found. moans from one of the closets (doors to the right). he opens them to find a concrete wall still wet. a muffled cry, continuous, perhaps an echo. open -a googlechrome, homepage defaults to google search engine. 
+        <br>
+        <br>
+        search  >  y o u t u b e  >  (canned interaction)  >  h a n a t a r a s h (space) f u l l (space) a l b u m  >  (canned interaction) > (canned interaction)
+        <br>
+        <br>
+        full day completed with empty promises ___ (self worth is negligible, something closer to self awareness without being too self indulgent)
+        <br>
+        <br>
+        in reverse (an act of self indulgence)
+        [ http://textmechanic.com/Reverse-Text-Generator.html ]
+        .(siht ees yllautca ot uoy rof krad oot si moor eht ,noitamrofni degelivirp( tah yadhtrib a gniraew llaw eht gnicaf si ti .moor niam eht morf tuo dedurtxe si taht rodirroc llams a fo renroc eht ni stis gip a .reduol sworg esion a ,repeed gnivom .emulov mumixam ta rekaeps htooteulb a no syalp 3 hsaratanah .noitisop latef ni nam ,(edisni eht morf ffo delaes neeb evah thgir eht no srood eht sa gniees tnadnuder eb yam evitcerid siht hguohtla) edis dnah tfel no moor retne ,hcaorppa</h4>
+
+        <!--YOUR SCROLL CONTENT HERE-->
+
+</div>
+</div>
     </body>
 </html>
