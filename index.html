@@ -68,7 +68,7 @@
                     height: 804,
                     depth: 804,
                     texture: 'img/pano-test-for-web.jpg',
-                    overlap: 1 // overlap 1px to eliminate seams
+                    overlap: 2 // overlap 1px to eliminate seams
                 })
                 scene.add(skybox)
 
@@ -181,10 +181,8 @@
                 function checkMode () {
                     if (window.innerWidth < window.innerHeight) {
                         alert('please use landscape mode')
-                        controls.lock()
-                    } else {
-                        controls.unlock()
-                    }
+                    } 
+                    
                 }
 
             }
