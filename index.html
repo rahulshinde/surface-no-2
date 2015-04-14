@@ -159,10 +159,10 @@
                 }
 
                 new TWEEN.Tween(skybox)
-                    .to({
-                        rotationY: Math.PI * 2
-                    }, 3000)
-                    .easing(TWEEN.Easing.Exponential.InOut)
+                    // .to({
+                    //     rotationY: Math.PI * 2
+                    // }, 3000)
+                    // .easing(TWEEN.Easing.Exponential.InOut)
                     .onComplete(function () {
                         controls.unlock()
                         if (mobile) checkMode()
@@ -181,8 +181,10 @@
                 function checkMode () {
                     if (window.innerWidth < window.innerHeight) {
                         alert('please use landscape mode')
-                    } 
-                    
+                        controls.lock()
+                    } else {
+                        controls.unlock()
+                    }
                 }
 
             }
